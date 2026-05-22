@@ -1,6 +1,11 @@
+import { router } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function HabitCard({ item, marcarComoFeito, excluirHabito }) {
+export default function HabitCard({
+  item,
+  marcarComoFeito,
+  excluirHabito,
+}: any) {
   return (
     <View style={[styles.card, item.feito && styles.cardFeito]}>
       <Text style={styles.nomeHabito}>{item.nome}</Text>
@@ -19,6 +24,22 @@ export default function HabitCard({ item, marcarComoFeito, excluirHabito }) {
       </TouchableOpacity>
 
       <TouchableOpacity
+        style={styles.botaoInfo}
+        onPress={() =>
+          router.push({
+            pathname: '/detalhes',
+            params: {
+              nome: item.nome,
+              beneficio: item.detalhe,
+              dica: item.dica,
+            },
+          })
+        }
+      >
+        <Text style={styles.textoBotao}>Informações</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
         style={styles.botaoExcluir}
         onPress={() => excluirHabito(item.id)}
       >
@@ -31,39 +52,57 @@ export default function HabitCard({ item, marcarComoFeito, excluirHabito }) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: 'white',
+    padding: 18,
+    marginBottom: 15,
+    borderRadius: 15,
     borderWidth: 1,
-    borderColor: 'gray',
-    padding: 15,
-    marginBottom: 10,
-    borderRadius: 5,
+    borderColor: '#dddddd',
   },
+
   cardFeito: {
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#eeeeee',
   },
+
   nomeHabito: {
-    fontSize: 18,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+
+  detalhe: {
+    fontSize: 15,
+    marginBottom: 8,
+  },
+
+  status: {
+    fontSize: 15,
+    marginBottom: 12,
     fontWeight: 'bold',
   },
-  detalhe: {
-    marginTop: 5,
-    marginBottom: 5,
-  },
-  status: {
-    marginBottom: 10,
-  },
+
   botaoFeito: {
     backgroundColor: 'green',
-    padding: 10,
-    borderRadius: 5,
+    padding: 12,
+    borderRadius: 10,
     alignItems: 'center',
     marginBottom: 8,
   },
+
+  botaoInfo: {
+    backgroundColor: 'blue',
+    padding: 12,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+
   botaoExcluir: {
     backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 5,
+    padding: 12,
+    borderRadius: 10,
     alignItems: 'center',
   },
+
   textoBotao: {
     color: 'white',
     fontWeight: 'bold',

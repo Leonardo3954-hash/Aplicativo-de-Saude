@@ -1,35 +1,31 @@
 import React, { useState } from 'react';
 import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
   View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
 } from 'react-native';
 
+import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import HabitCard from '../../components/HabitCard';
-import Navbar from '../../components/Navbar';
 
 export default function HomeScreen() {
   const [habitos, setHabitos] = useState([
     {
       id: '1',
-      nome: 'Beber água',
-      detalhe: 'Beber água ajuda o corpo a funcionar melhor.',
+      nome: 'Caminhar',
+      detalhe: 'Caminhar melhora a saúde e dá mais disposição.',
+      dica: 'Tente caminhar pelo menos 30 minutos por dia.',
       feito: false,
     },
     {
       id: '2',
-      nome: 'Caminhar',
-      detalhe: 'Caminhar melhora a saúde e dá mais disposição.',
-      feito: false,
-    },
-    {
-      id: '3',
       nome: 'Dormir bem',
       detalhe: 'Dormir bem ajuda na concentração e no descanso.',
+      dica: 'Evite usar o celular antes de dormir.',
       feito: false,
     },
   ]);
@@ -45,6 +41,7 @@ export default function HomeScreen() {
       id: Date.now().toString(),
       nome: novoHabito,
       detalhe: 'Hábito adicionado pelo usuário.',
+      dica: 'Adicione uma dica prática na tela de informações.',
       feito: false,
     };
 
@@ -83,7 +80,10 @@ export default function HomeScreen() {
           onChangeText={setNovoHabito}
         />
 
-        <TouchableOpacity style={styles.botaoAdicionar} onPress={adicionarHabito}>
+        <TouchableOpacity
+          style={styles.botaoAdicionar}
+          onPress={adicionarHabito}
+        >
           <Text style={styles.textoBotao}>Adicionar hábito</Text>
         </TouchableOpacity>
 
@@ -109,29 +109,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   conteudo: {
     flex: 1,
     padding: 15,
+    backgroundColor: '#f2f2f2',
   },
+
   titulo: {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
   },
+
   input: {
+    backgroundColor: 'white',
     borderWidth: 1,
     borderColor: 'gray',
     padding: 10,
     marginBottom: 10,
-    borderRadius: 5,
+    borderRadius: 8,
   },
+
   botaoAdicionar: {
     backgroundColor: 'blue',
-    padding: 10,
-    marginBottom: 15,
-    borderRadius: 5,
+    width: '60%',
+    alignSelf: 'center',
+    paddingVertical: 12,
+    borderRadius: 10,
     alignItems: 'center',
+    marginBottom: 18,
   },
+
   textoBotao: {
     color: 'white',
     fontWeight: 'bold',

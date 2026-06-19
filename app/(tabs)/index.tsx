@@ -100,7 +100,7 @@ export default function HomeScreen() {
         />
       </View>
 
-      <Footer />
+ 
     </View>
   );
 }

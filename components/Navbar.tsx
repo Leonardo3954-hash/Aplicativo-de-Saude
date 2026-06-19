@@ -10,13 +10,15 @@ export default function Navbar() {
 
 const styles = StyleSheet.create({
   navbar: {
-    backgroundColor: 'green',
+    backgroundColor: '#2563EB',
     padding: 20,
     alignItems: 'center',
+    elevation: 4,
   },
+
   texto: {
-    color: 'white',
-    fontSize: 22,
+    color: '#FFFFFF',
+    fontSize: 24,
     fontWeight: 'bold',
   },
 });

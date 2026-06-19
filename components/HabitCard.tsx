@@ -51,60 +51,75 @@ export default function HabitCard({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     padding: 18,
     marginBottom: 15,
-    borderRadius: 15,
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#dddddd',
+    borderColor: '#E5E7EB',
+  
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    elevation: 3,
   },
 
   cardFeito: {
-    backgroundColor: '#eeeeee',
+    backgroundColor: '#E5E7EB',
   },
 
   nomeHabito: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
+    color: '#1F2937',
     marginBottom: 8,
   },
 
   detalhe: {
-    fontSize: 15,
-    marginBottom: 8,
+    fontSize: 16,
+    color: '#6B7280',
+    marginBottom: 10,
   },
 
+ 
+
   status: {
-    fontSize: 15,
-    marginBottom: 12,
+    fontSize: 16,
     fontWeight: 'bold',
+    color: '#1F2937',
+    marginBottom: 12,
   },
 
   botaoFeito: {
-    backgroundColor: 'green',
-    padding: 12,
-    borderRadius: 10,
+    backgroundColor: '#10B981',
+    padding: 14,
+    borderRadius: 12,
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
   },
 
   botaoInfo: {
-    backgroundColor: 'blue',
-    padding: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginBottom: 8,
-  },
+  backgroundColor: '#2563EB',
+  padding: 14,
+  borderRadius: 12,
+  alignItems: 'center',
+  marginBottom: 10,
+},
 
-  botaoExcluir: {
-    backgroundColor: 'red',
-    padding: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
+botaoExcluir: {
+  backgroundColor: '#EF4444',
+  padding: 14,
+  borderRadius: 12,
+  alignItems: 'center',
+},
 
-  textoBotao: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
+textoBotao: {
+  color: '#FFFFFF',
+  fontWeight: 'bold',
+  fontSize: 16,
+},
 });

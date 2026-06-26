@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
 
   botaoFeito: {
-    backgroundColor: '#10B981',
+     backgroundColor: 'green',
     padding: 14,
     borderRadius: 12,
     alignItems: 'center',

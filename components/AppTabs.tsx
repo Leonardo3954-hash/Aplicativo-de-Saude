@@ -56,3 +56,16 @@ export default function AppTabs() {
     </Tabs>
   );
 }
+<Tabs.Screen
+  name="dicas"
+  options={{
+    title: 'Dicas',
+    tabBarIcon: ({ color }) => (
+      <FontAwesome5
+        name="heartbeat"
+        size={24}
+        color={color}
+      />
+    ),
+  }}
+/>

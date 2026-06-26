@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Navbar() {
   return (
     <View style={styles.navbar}>
-      <Text style={styles.texto}>App Saúde</Text>
+      <Text style={styles.texto}>Habit Life</Text>
     </View>
   );
 }

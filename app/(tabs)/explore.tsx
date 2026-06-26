@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Share,
 } from 'react-native';
 
 export default function ExploreScreen() {
@@ -40,9 +41,22 @@ export default function ExploreScreen() {
     );
   }
 
+  async function compartilharResultado() {
+    if (resultado === '') return;
+
+    try {
+      await Share.share({
+        message: `${resultado}
+
+Calculado pelo App Saúde.`,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <View style={styles.container}>
-
       <View style={styles.tituloContainer}>
         <Text style={styles.titulo}>
           Calculadora de IMC
@@ -75,27 +89,36 @@ export default function ExploreScreen() {
       </TouchableOpacity>
 
       {resultado !== '' && (
-        <View style={styles.resultadoContainer}>
-          <Text style={styles.resultadoTexto}>
-            {resultado}
-          </Text>
-        </View>
-      )}
+        <>
+          <View style={styles.resultadoContainer}>
+            <Text style={styles.resultadoTexto}>
+              {resultado}
+            </Text>
+          </View>
 
+          <TouchableOpacity
+            style={styles.botaoCompartilhar}
+            onPress={compartilharResultado}
+          >
+            <Text style={styles.textoBotao}>
+              Compartilhar Resultado
+            </Text>
+          </TouchableOpacity>
+        </>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#F8FAFC',
   },
 
   tituloContainer: {
-    backgroundColor: '#0A8F08',
+    backgroundColor: '#2563EB',
     padding: 15,
     borderRadius: 15,
     marginBottom: 25,
@@ -103,23 +126,24 @@ const styles = StyleSheet.create({
   },
 
   titulo: {
-    color: 'white',
+    color: '#FFFFFF',
     fontSize: 26,
     fontWeight: 'bold',
   },
 
   input: {
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#cccccc',
+    borderColor: '#E5E7EB',
     borderRadius: 12,
     padding: 12,
     marginBottom: 12,
     fontSize: 16,
+    color: '#1F2937',
   },
 
   botao: {
-    backgroundColor: '#0A8F08',
+    backgroundColor: '#10B981',
     width: '60%',
     alignSelf: 'center',
     paddingVertical: 14,
@@ -128,25 +152,43 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
+  botaoCompartilhar: {
+    backgroundColor: '#2563EB',
+    width: '60%',
+    alignSelf: 'center',
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginTop: 12,
+  },
+
   textoBotao: {
-    color: 'white',
+    color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 17,
   },
 
   resultadoContainer: {
-    marginTop: 35,
-    backgroundColor: '#666666',
+    marginTop: 30,
+    backgroundColor: '#FFFFFF',
     padding: 20,
-    borderRadius: 15,
+    borderRadius: 16,
     alignItems: 'center',
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    elevation: 3,
   },
 
   resultadoTexto: {
-    color: 'white',
-    fontSize: 22,
+    color: '#1F2937',
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
-
 });

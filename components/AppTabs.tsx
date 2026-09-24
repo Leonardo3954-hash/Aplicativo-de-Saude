@@ -20,16 +20,23 @@ export default function AppTabs() {
           <BottomTabBar {...props} />
         </>
       )}
+
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor:
+          Colors[colorScheme ?? 'light'].tint,
+
         headerShown: false,
+
         tabBarButton: HapticTab,
       }}
     >
+
+      {/* Aba Hábitos */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Hábitos',
+
           tabBarIcon: ({ color }) => (
             <FontAwesome5
               name="heartbeat"
@@ -40,10 +47,12 @@ export default function AppTabs() {
         }}
       />
 
+      {/* Aba IMC */}
       <Tabs.Screen
         name="explore"
         options={{
           title: 'IMC',
+
           tabBarIcon: ({ color }) => (
             <FontAwesome5
               name="weight"
@@ -53,19 +62,31 @@ export default function AppTabs() {
           ),
         }}
       />
+
+      {/* Aba Dicas */}
+      <Tabs.Screen
+        name="dicas"
+        options={{
+          title: 'Dicas',
+
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5
+              name="heartbeat"
+              size={24}
+              color={color}
+            />
+          ),
+        }}
+      />
+
+      {/* Configurações NÃO aparece na barra inferior */}
+      <Tabs.Screen
+        name="configuracoes"
+        options={{
+          href: null,
+        }}
+      />
+
     </Tabs>
   );
 }
-<Tabs.Screen
-  name="dicas"
-  options={{
-    title: 'Dicas',
-    tabBarIcon: ({ color }) => (
-      <FontAwesome5
-        name="heartbeat"
-        size={24}
-        color={color}
-      />
-    ),
-  }}
-/>
